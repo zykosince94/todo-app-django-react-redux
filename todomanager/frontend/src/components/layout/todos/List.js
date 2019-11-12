@@ -69,32 +69,13 @@ export class List extends Component {
 
     render() {
         return (
-            <div className="m-4">
-                <div className="card">
-                    <div className="card-body">
-                        <h2 className="text-center">BUCKETS</h2>
-                        <Fragment>
-                            {this.props.buckets.map(bucket => (
-                                <Fragment key={bucket.id}>
-                                    <h4 className="mt-4">{bucket.name}</h4>
-                                    <table className="table table-dark">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Status</th>
-                                                <th>Date</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {this.getRowItems(bucket.id)}
-                                        </tbody>
-                                    </table>
-                                </Fragment>
-                            ))}
-
-                            <Fragment key={null}>
-                                <h4 className="mt-4">Items not in a bucket</h4>
+            <div className="card mt-4">
+                <div className="card-body">
+                    <h3 className="text-center">Buckets</h3>
+                    <Fragment>
+                        {this.props.buckets.map(bucket => (
+                            <Fragment key={bucket.id}>
+                                <h4 className="mt-4">{bucket.name}</h4>
                                 <table className="table table-dark">
                                     <thead>
                                         <tr>
@@ -105,12 +86,29 @@ export class List extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.getRowItems(null)}
+                                        {this.getRowItems(bucket.id)}
                                     </tbody>
                                 </table>
                             </Fragment>
+                        ))}
+
+                        <Fragment key={null}>
+                            <h4 className="mt-4">Items not in a bucket</h4>
+                            <table className="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.getRowItems(null)}
+                                </tbody>
+                            </table>
                         </Fragment>
-                    </div>
+                    </Fragment>
                 </div>
             </div>
         )
@@ -124,6 +122,7 @@ export class List extends Component {
                 {this.state.isEditing && this.state.editingTodo.id == todo.id ?
                     <td>
                         <input name="name"
+                            className="form-control"
                             ref={(input) => { this.inputRef = input; }}
                             value={this.state.editingTodo.name}
                             onChange={(e) => this.onChange(e)}
@@ -137,7 +136,7 @@ export class List extends Component {
                         <button className="btn btn-secondary" onClick={() => this.toggleTodoComplete(todo, false)}>Mark Pending</button>
                     </Fragment>
                     :
-                    <Fragment><span className="text-secondary mr-4">PENDING</span>
+                    <Fragment><span className="text-white-50 mr-4">PENDING</span>
                         <button className="btn btn-success" onClick={() => this.toggleTodoComplete(todo, true)}>Mark Complete</button>
                     </Fragment>
                 }</td>

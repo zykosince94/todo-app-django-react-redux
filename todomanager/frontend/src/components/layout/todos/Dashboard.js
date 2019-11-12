@@ -7,7 +7,7 @@ export class Dashboard extends Component {
     render() {
         return (
             <div className="m-4">
-                <div className="card">
+                <div className="card bg-light">
                     <div className="card-body">
                         <Form />
                         <List />
