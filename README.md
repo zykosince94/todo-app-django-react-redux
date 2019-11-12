@@ -9,7 +9,7 @@
 npm install
 
 # Serve API on localhost:8000
-py leadmanager/manage.py runserver
+py todomanager/manage.py runserver
 
 # Run webpack (from root)
 npm run dev
