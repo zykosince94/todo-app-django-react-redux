@@ -1,6 +1,6 @@
 # To Do Manager
 
-> Full stack Django/React/Redux to do application that uses token based authentication with Knox (uses Babel for transpilation along with WebPack).
+> Full stack Django/React/Redux to do application that uses token based authentication with Knox (uses Babel for transpilation along with WebPack) along with Bootstrap for UI.
 
 ## Quick Start
 
